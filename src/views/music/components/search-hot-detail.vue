@@ -3,7 +3,7 @@
     <p class="pl-4 mt-4 opacity-70"> 热搜榜 </p>
     <div class="h-60"></div>
     <div
-      v-for="(item, index) in list"
+      v-for="(item, index) in hotSearch"
       :key="item.searchWord"
       class="flex items-center p-5 hover:bg-gray-100 dark:hover:bg-gray-100/20 cursor-pointer"
     >
@@ -19,7 +19,9 @@
 </template>
 <script setup lang="ts">
   import { searchHotDetail } from '/@/api/user';
-  const reply = await searchHotDetail();
-  console.log(reply);
-  const list = reply.data;
+  import { useAsyncState } from '@vueuse/core';
+  const { state: hotSearch } = useAsyncState(
+    searchHotDetail().then((res) => res.data),
+    {},
+  );
 </script>
