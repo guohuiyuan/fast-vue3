@@ -1,6 +1,4 @@
-<template>
-  <activity-form />
-</template>
+<template> <search-hot-detail /></template>
 <script setup lang="ts">
-  import ActivityForm from './components/activity-form.vue';
+  import searchHotDetail from './components/search-hot-detail.vue';
 </script>
