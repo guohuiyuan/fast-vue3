@@ -18,10 +18,10 @@
   </div>
 </template>
 <script setup lang="ts">
-  import { searchHotDetail } from '/@/api/user';
+  import { getHotSearchList } from '/@/service';
   import { useAsyncState } from '@vueuse/core';
   const { state: hotSearch } = useAsyncState(
-    searchHotDetail().then((res) => res.data),
+    getHotSearchList().then((res) => res.data.data),
     {},
   );
 </script>
